@@ -3,3 +3,6 @@ lib
 node_modules
 package-lock.json
 .vscode
+build
+assembly/**/*.wat
+assembly/**/*.map

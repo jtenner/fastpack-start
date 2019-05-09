@@ -4,18 +4,36 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "build": "fpack build ./src/index.ts -o lib --dev"
+    "start": "npm run watch",
+    "test": "run-s asp jest",
+    "watch": "run-p fpack:watch asbuild:watch asp:watch",
+    "fpack": "fpack build ./src/index.ts -o lib --dev",
+    "fpack:watch": "fpack build ./src/index.ts -w -o lib --dev",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "jest": "jest",
+    "asp": "asp",
+    "asp:watch": "onchange -i -k \"assembly/**/*.ts\" -- npm run asp",
+    "asbuild:watch": "onchange -i -k \"assembly/**/*.ts\" -- npm run asbuild:untouched",
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --sourceMap --validate --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate -O3",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
   },
   "author": "Joshua <tenner.joshua@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.12",
     "@types/node": "^12.0.0",
+    "as-pect": "github:jtenner/as-pect",
+    "coveralls": "^3.0.3",
     "fastpack": "^0.9.1",
     "jest": "^24.8.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^5.2.0",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.0",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "assemblyscript": "github:assemblyscript/assemblyscript"
   }
 }
