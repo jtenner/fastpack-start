@@ -1,0 +1,13 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "preprocess": [
+      {
+          "re": "^src.+\\.ts$",
+          "process": "ts-loader"
+      },
+      {
+          "re": "\\.wasm$",
+          "process": "url-loader"
+      }
+  ]
+}
