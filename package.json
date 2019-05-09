@@ -7,6 +7,7 @@
     "start": "npm run watch",
     "test": "run-s asp jest",
     "watch": "run-p fpack:watch asbuild:watch asp:watch",
+    "build": "run-s asbuild:untouched fpack",
     "fpack": "fpack build ./src/index.ts -o lib --dev",
     "fpack:watch": "fpack build ./src/index.ts -w -o lib --dev",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
@@ -31,7 +32,8 @@
     "onchange": "^5.2.0",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "url-loader": "^1.1.2"
   },
   "dependencies": {
     "assemblyscript": "github:assemblyscript/assemblyscript"
