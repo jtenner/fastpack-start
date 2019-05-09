@@ -8,7 +8,7 @@
     "build": "run-s asbuild:untouched fpack",
     "watch": "run-p asbuild:watch fpack:watch",
     "test": "run-s asp jest",
-    "fpack": "fpack build ./src/index.ts -o lib --dev --preprocess \"\\.wasm$:url-loader\" --preprocess \"\\.tsx?:babel-loader\"",
+    "fpack": "fpack build ./src/index.ts -o lib --dev -c fpack.json",
     "fpack:watch": "onchange -i -k \"src/**/*.ts\" \"build/**/*.wasm\" -- npm run fpack",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "jest": "jest",
