@@ -28,7 +28,7 @@
     "@types/node": "^12.0.0",
     "as-pect": "github:jtenner/as-pect",
     "babel-loader": "^8.0.5",
-    "binary-loader": "0.0.1",
+    "url-loader": "^1.1.2",
     "coveralls": "^3.0.3",
     "fastpack": "^0.9.1",
     "jest": "^24.8.0",
