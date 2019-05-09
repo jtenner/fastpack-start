@@ -1,0 +1,12 @@
+.gitignore
+.travisyml
+__tests__
+assembly
+build
+coverage
+node_modules
+src
+as-pect.config.js
+fpack.json
+jest.config.js
+tsconfig.json
