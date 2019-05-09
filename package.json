@@ -2,7 +2,7 @@
   "name": "fastpack-start",
   "version": "0.1.0",
   "description": "A web assembly powered fastpack starter kit with jest and as-pect testing built in.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "run-s asbuild:untouched fpack watch",
     "build": "run-s asbuild:untouched fpack",
